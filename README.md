@@ -1,13 +1,11 @@
-# Unicode-bettingPool
-
-Betting Pool Concept
+# Unicode - Betting with ConditionalTokens. 
 
 
-# Betting Pool Dapp
+<h4> Why using Conditonal Tokens to make bets ? </h4>
 
-<h4> Why building a Betting Pool and not a Classical Betting platform ? </h4>
+<p> Gambling sector : The global online betting market is growing 11.5% annually. estimated to reach about $93 billion by 2023.
+   
 
-<p> Gambling sector : The global online betting market is growing 11.5% annually. estimated to reach about $93 billion by 2023 </p> 
 
 <h1> Description </h1>
 
@@ -50,8 +48,9 @@ Situation 1 :
 
 # Underlying protocols
 
-- <strong> Chainlink Oracle </strong> : import data for the odds
-  - <strong> Uniswap </strong> : LP tokens in UniV3 position
+  Oracles / LP Exchanges : 
+  <strong> Chainlink </strong> : import data for the odds
+  <strong> Uniswap </strong> : LP tokens in UniV3 position / import data for the odds 
 
 
 # Programming languages
@@ -62,6 +61,7 @@ Situation 1 :
    <li> React </li>
    <li> HTML </li>
    <li> Javascript </li>
+ 
 
  </ul>
 
