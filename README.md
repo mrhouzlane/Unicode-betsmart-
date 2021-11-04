@@ -2,78 +2,102 @@
 
 Betting Pool Concept
 
+## Boilerplate code forked from here:
+
+[HardHat boilerplate code](https://github.com/nomiclabs/hardhat-hackathon-boilerplate)
+
+Also checkout this page:
+[How to use it](https://hardhat.org/tutorial/hackathon-boilerplate-project.html)
+
+## Quick start
+
+The first things you need to do are cloning this repository and installing its
+dependencies:
+
+```sh
+git clone https://github.com/nomiclabs/hardhat-hackathon-boilerplate.git
+cd hardhat-hackathon-boilerplate
+npm install
+```
+
+Once installed, let's run Hardhat's testing network:
+
+```sh
+npx hardhat node
+```
+
+Then, on a new terminal, go to the repository's root folder and run this to
+deploy your contract:
+
+```sh
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+Finally, we can run the frontend with:
+
+```sh
+cd frontend
+npm install
+npm start
+```
+
+> Note: There's [an issue in `ganache-core`](https://github.com/trufflesuite/ganache-core/issues/650) that can make the `npm install` step fail.
+>
+> If you see `npm ERR! code ENOLOCAL`, try running `npm ci` instead of `npm install`.
+
+Open [http://localhost:3000/](http://localhost:3000/) to see your Dapp. You will
+need to have [Metamask](https://metamask.io) installed and listening to
+
 # Betting Pool Dapp
 
 <h4> Why building a Betting Pool and not a Classical Betting platform ? </h4>
 
-<p> Every human in this earth wants to participate to something, sometimes by risking his money. This is what we refer to gambling. But gambling through the years was always about wins and loses , about all in , getting rich quick or becoming poor from one day to another. Why don't we break the rules of betting ? What about loosing a bet and still getting rewards from the pool you are betting in (pool here means the total amount bet on the outcome 1 or 2 ).
-This is where we want to innovate. IMAGINE LOOSING A BET AND STILL GETTING REWARDS FROM THE POOL ! This means your balance will never be 0 ! YOU WILL ALWAYS BE ALIVE AND IN THE GAME  !!!
+<p> Gambling sector : The global online betting market is growing 11.5% annually. estimated to reach about $93 billion by 2023 </p> 
 
 <h1> Description </h1>
 
-<p>
-A betting platform where a player will bet on 2 outcomes : 1 or 2. His bet will be added to other players bet and he will earn a share of the pool if he looses.
-If he wins he will get his rewards (bet amount * (odds -1) ) and a share of the rewards. So even if you loose you get some rewards.
+<p> This betting Dapp is based on Gnosis implementation of Conditional Tokens </p> 
+Please refer to this link : https://docs.gnosis.io/conditionaltokens/docs/devguide01/ to get all informations about the coding process. 
 
-Imagine :
+<h3> Structure </h3> 
 
-<em> <ul> Player 1 : <em>
+On top of the imported ERC20 and ERC1155 will be coded a program to createBet and to redeemTokens.
 
-  <li> bets 200 DAI on the outcome 1 (team 1 wins) </li>
-  <li> the result is team 2 wins , so the winner outcome is 2 </li>
-  <li> will loose his betting amount, but still wins a share of the pool*</li>
- </ul>
+<string> Example :</string> 
+Let's say we have 3 outcomes possible to the question : <q> Who will win the Ballon d'or 2021 ?  </q> :
 
-_share of the pool : it is the amount of his bet divided by the totalamount of the pool <strong> (amountBet / totalAmountPool) _ coeff
-with a coeff implemented depending of the size of the pool to let the website remain sustainable to control the amount that is given to the player who loses
-without having some tricks made by the players by arbitrage.
+<dl>
+<dt> 1. Messi </dt>
+<dt> 2. Benzema </dt>
+<dt> 3. Lewandowski </dt>
+</dl>
 
-<em> Requirements :
-
-We should verify that a player :
-
-  <ul>
-   <li> has not placed a bet before </li>
-   <li> bets an amount > minimumBet </li>
-   <li> he exists in the players array to receive his reward </li>
-
-   </em>
-
-<em> Rewards : (approximations )
-
-In case Player looses :
-
-- > If the amount of the player's bet is less than 25% of the pool size he will earn 0,15% of the totalPoolamount
-- > If the amount of the player's bet is bigger than 25% of the pool size he will earn 0,25% of the totalPoolamount
-  > ...
-
-In case Player wins :
-
-- > The rewards are relative to his wins : he will get a %(Formula to implement).
-
-# Front-end project
-
- <h2> PROTOCOL </h2>
-
-> Pools are outcomes like 1 or 2.
-
-Player can :
+To get the ConditionId 3 parameters are needed : 
 
 <ul>
-  <li> bet </li>
-  <li> withdraw his rewards </li>
-  <li> cash out depending on the odds fluctuations </li>
+  <li>oracle's address : the account assigned to report the result for the prepared condition. </li>
+ <li>a 32bytes address for the questionId.  </li>
+ <li>the number of outcomeSlots identified as outcomeSlotsCount which is 3 here </li>
+  
+ 
+Situation 1 : 
+  
 
-Functions are :
+<em> Player 1 :  bets 200 DAI on the outcome 1.Messi <em> : 
+  
+  1. Our smart contract will receive 200 DAI as the collateral Token.
+  2. This 200 DAI will be splited into ConditionalTokens on the 3 outcomes possible
+  3. The oracle will report results of Condition and emits the payouts which is the oracle's answer. 
+  4. ConditionalTokens will be then transfered based on ERC1155. Since each token has a positionID, they are indexed to a corresponding conditionalToken. 
+  This is why the Receiver has to call the function ERC1155TokenReceiver to get the magic expected values. 
 
-- distributePrizes
-- bet
-- checkPlayerExists
+
 
 # Underlying protocols
 
 - <strong> Chainlink Oracle </strong> : import data for the odds
-- <strong> 1inche </strong> : DeFi aggregator
+  - <strong> Uniswap </strong> : LP tokens in UniV3 position
+
 
 # Programming languages
 
@@ -88,5 +112,3 @@ Functions are :
 
 # Scalability
 
-First we will implement only 2 outcomes 1 or 2. Then we can add other outcomes like tie X , number of goals scored , team with most of goals, number of cards ...
-Also we can use oracles like Chainlink oracle to
