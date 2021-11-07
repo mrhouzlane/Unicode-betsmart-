@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
+    <title>Bet Smart</title>
+
+    <!-- ========== All CSS files linkup ========= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ethjs@0.3.4/dist/ethjs.min.js"></script>
+</head>
+
+<body>
+    <!-- ======== sidebar-nav start =========== -->
+    <aside class="sidebar-nav-wrapper">
+        <div class="navbar-logo">
+            <a href="index.html">
+                <img src="assets/images/logo/logo.svg" alt="logo" />
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item nav-item-has-children">
+                    <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_1" aria-controls="ddmenu_1" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon">
+                <svg width="22" height="22" viewBox="0 0 22 22">
+                  <path
+                    d="M17.4167 4.58333V6.41667H13.75V4.58333H17.4167ZM8.25 4.58333V10.0833H4.58333V4.58333H8.25ZM17.4167 11.9167V17.4167H13.75V11.9167H17.4167ZM8.25 15.5833V17.4167H4.58333V15.5833H8.25ZM19.25 2.75H11.9167V8.25H19.25V2.75ZM10.0833 2.75H2.75V11.9167H10.0833V2.75ZM19.25 10.0833H11.9167V19.25H19.25V10.0833ZM10.0833 13.75H2.75V19.25H10.0833V13.75Z"
+                  />
+                </svg>
+              </span>
+                        <span class="text">Dashboard</span>
+                    </a>
+                    <ul id="ddmenu_1" class="collapse show dropdown-nav">
+                        <li>
+                            <a href="index.html" class="active"> Bet Console </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </aside>
+    <div class="overlay"></div>
+    <!-- ======== sidebar-nav end =========== -->
+
+    <!-- ======== main-wrapper start =========== -->
+    <main class="main-wrapper">
+        <!-- ========== header start ========== -->
+        <header class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-6">
+                        <div class="header-left d-flex align-items-center">
+                            <div class="menu-toggle-btn mr-20">
+                                <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                    <i class="lni lni-chevron-left me-2"></i> Menu
+                  </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-6">
+                        <div class="header-right">
+
+                            <!-- Web 3 start -->
+
+                            <span id="showAccount"></span>
+
+                            <div class="profile-box ml-15">
+                                <a href="#0" class="main-btn primary-btn rounded-md btn-hover" id="connect_web3">Connect Web 3</a
+                            ></div>
+                                   
+                    <!-- Web end-->
+                </div>
+            </div>
+            </div>
+            </div>
+        </header>
+        <!-- ========== header end ========== -->
+
+        <!-- ========== section start ========== -->
+        <section class="section">
+            <div class="container-fluid">
+                <!-- ========== title-wrapper start ========== -->
+                <div class="title-wrapper pt-30">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="title mb-30">
+                                <h2>Bet Smart Dashboard</h2>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                        <div class="col-md-6">
+                            <div class="breadcrumb-wrapper mb-30">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="#0">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Bet Console
+                                </li>
+                                </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- ========== title-wrapper end ========== -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon purple">
+                                <i class="lni lni-investment"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">New Bets</h6>
+                                <h3 class="text-bold mb-10">34567</h3>
+                                <p class="text-sm text-active">
+                                    <i class="lni lni-arrow-up"></i> +2.00%
+                                    <span class="text-gray">(30 days)</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon success">
+                                <i class="lni lni-circle-plus"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Team 1 Pool</h6>
+                                <h3 class="text-bold mb-10" id="pool_1_view">$74,567</h3>
+                                <p class="text-sm text-success">
+                                    <i class="lni lni-arrow-up"></i> +5.45%
+                                    <span class="text-gray">Increased</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon danger">
+                                <i class="lni lni-circle-minus"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">Team 2 Pool</h6>
+                                <h3 class="text-bold mb-10" id="pool_2_view">$24,567</h3>
+                                <p class="text-sm text-danger">
+                                    <i class="lni lni-arrow-down"></i> -2.00%
+                                    <span class="text-gray">Expense</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                        <div class="icon-card mb-30">
+                            <div class="icon info">
+                                <i class="lni lni-dollar"></i>
+                            </div>
+                            <div class="content">
+                                <h6 class="mb-10">X Pool</h6>
+                                <h3 class="text-bold mb-10" id="pool_x_view">$198,240,567</h3>
+                                <p class="text-sm text-danger">
+                                    <i class="lni lni-arrow-down"></i> -2.00%
+                                    <span class="text-gray">Expense</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Icon Cart -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+
+                <div class="row">
+                    <div class="col-lg-5">
+
+                        <div class="card-style mb-30">
+                            <h6 class="mb-10">Place Your Bet</h6>
+
+                            <label><h6>Select Bet Pool Token Alpha</h6></label>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="select-style-1">
+                                            <div class="select-position">
+                                                <select id="alpha_bet_token">
+                                                    <option selected="selected" value="UNI">UNI</option>
+                                                    <option value="DAI">DAI</option>
+                                                    <option value="USDC">USDC</option>
+                                                    <option value="TETHER">TETHER</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-style-2">
+                                            <input type="text" placeholder="Enter Bet Amount..." id="alpha_bet_amount" />
+                                            <span class="icon"> <i class="lni lni-dollar"></i> </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="input-style-3">
+                                <div class="profile-box ml-15">
+                                    <a href="#0" class="main-btn primary-btn rounded-md btn-hover" id="approve_token_alpha">Approve Token Alpha</a>
+                                </div>
+                            </div>
+
+
+                            <div class="select-style-1">
+                                <label>Bet Choice</label>
+                                <div class="select-position">
+                                    <select id="bet_position">
+                                          <option value="1">Team 1 Win</option>
+                                          <option value="2">Team 2 Win</option>
+                                          <option selected="selected" value="3">Team Tie</option>
+                                     </select>
+                                </div>
+                            </div>
+                            <!-- end input -->
+
+                            <div class="input-style-3">
+                                <div class="profile-box ml-15">
+                                    <a href="#0" class="main-btn primary-btn rounded-md btn-hover" id="place_bet_button">Place Bet</a>
+                                </div>
+                            </div>
+                            <!-- end input -->
+                            <div class="input-style-3">
+                                <div class="profile-box ml-15">
+                                    <span id="txn_display"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card             
+                        <!-- End Col -->
+                    <div class=" col-lg-7 ">
+                        <div class="card-style mb-30 ">
+                            <div class=" title d-flex flex-wrap align-items-center justify-content-between ">
+                                <div class="left ">
+                                    <h6 class="text-medium mb-30 ">Ended Bets</h6>
+                                </div>
+                            </div>
+
+                            <!-- End Title -->
+                            <div class="table-wrapper table-responsive ">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <h6>Token</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Bet Amount</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Win / Lose</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Win Amount</h6>
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/uniswap-uni-logo.png " alt=" " />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>
+                                                    <a href="#0 ">UNI 10 ($250.90)</a>
+                                                </p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>WIN</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>2.22%</p>
+                                            </td>
+                                            <td>
+                                                <div class="input-style-3 ">
+                                                    <div class="profile-box ml-15 ">
+                                                        <a href="#0 " class="main-btn primary-btn rounded-md btn-hover " id="claim_question_1 ">claim</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                more ...
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/multi-collateral-dai-dai-logo.png " alt=" " />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p><a href="#0 ">$230 ($230.90)</a></p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>WIN</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>1.1%</p>
+                                            </td>
+                                            <td>
+                                                <div class="input-style-3 ">
+                                                    <div class="profile-box ml-15 ">
+                                                        <a href="#0 " class="main-btn primary-btn rounded-md btn-hover " id="claim_question_2 ">claim</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                more ...
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/usd-coin-usdc-logo.png " alt=" " />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p><a href="#0 ">$200 ($199.90)</a></p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>LOSE</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>0.01%</p>
+                                            </td>
+                                            <td>
+                                                <div class="input-style-3 ">
+                                                    <div class="profile-box ml-15 ">
+                                                        <a href="#0 " class="main-btn primary-btn rounded-md btn-hover " id="claim_question_2 ">claim</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                more ...
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/tether-usdt-logo.png " alt=" " />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p><a href="#0 ">$200 ($199.90)</a></p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>WIN</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>4.2%</p>
+                                            </td>
+                                            <td>
+                                                <div class="input-style-3 ">
+                                                    <div class="profile-box ml-15 ">
+                                                        <a href="#0 " class="main-btn primary-btn rounded-md btn-hover " id="claim_question_3 ">claim</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                more ...
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->-->
+                                    </tbody>
+                                </table>
+                                <!-- end table -->
+
+                                >
+                            </div>
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                    <div class="row ">
+                        <div class="card-style mb-30 ">
+                            <h6 class="mb-10 ">Running Bets</h6>
+                            <p class="text-sm mb-20 ">
+                                Bets currently awaiting execution
+                            </p>
+                            <div class="table-wrapper table-responsive ">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <h6>Token</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Amount</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Pool</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Win Share</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Question Id</h6>
+                                            </th>
+                                            <th>
+                                                <h6>Execution Date</h6>
+                                            </th>
+                                        </tr>
+                                        <!-- end table row-->
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/uniswap-uni-logo.png " alt=" " />
+                                                    </div>
+                                                    <div class="lead-text ">
+                                                        <p>Uniswap</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>
+                                                    <a href="#0 ">UNI 10 ($250.90)</a>
+                                                </p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>UNI 450 ($11,290.50)</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>2.22%</p>
+                                            </td>
+                                            <td> question </td>
+                                            <td>
+                                                2021 - 11 -08 11:00 EST
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/multi-collateral-dai-dai-logo.png " alt=" " />
+                                                    </div>
+                                                    <div class="lead-text ">
+                                                        <p>Dai</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p><a href="#0 ">$230 ($230.90)</a></p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>$20,500.10 $(20,509.60)</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>1.1%</p>
+                                            </td>
+                                            <td> question </td>
+                                            <td>
+                                                2021 - 11 -08 11:00 EST
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        <tr>
+                                            <td class="min-width ">
+                                                <div class="lead ">
+                                                    <div class="lead-image ">
+                                                        <img src="assets/images/logo/usd-coin-usdc-logo.png " alt=" " />
+                                                    </div>
+                                                    <div class="lead-text ">
+                                                        <p>Usdc</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p><a href="#0 ">$200 ($199.90)</a></p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>$5,469.30 ($5472.40 )</p>
+                                            </td>
+                                            <td class="min-width ">
+                                                <p>4.2%</p>
+                                            </td>
+                                            <td> question </td>
+                                            <td>
+                                                2021 - 11 -08 11:00 EST
+                                            </td>
+                                        </tr>
+                                        <!-- end table row -->
+                                        -->
+                                    </tbody>
+                                </table>
+                                <!-- end table -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+
+                </div>
+                <!-- end container -->
+                </section>
+                <!-- ========== section end ========== -->
+
+                <!-- ========== footer start =========== -->
+                <footer class="footer ">
+                    <div class="container-fluid ">
+                        <div class="row ">
+                            <div class="col-md-6 order-last order-md-first ">
+                                <div class="copyright text-center text-md-start ">
+                                    <p class="text-sm ">
+                                        Designed By Unicode Bets <br/> Powered By
+                                        <a href="https://plainadmin.com " rel="nofollow " target="_blank ">
+                    PlainAdmin
+                  </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end col-->
+                            <div class="col-md-6 ">
+                                <div class=" terms d-flex justify-content-center justify-content-md-end ">
+                                    <a href="#0 " class="text-sm ">Term & Conditions</a>
+                                    <a href="#0 " class="text-sm ml-15 ">Privacy & Policy</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container -->
+                </footer>
+                <!-- ========== footer end =========== -->
+    </main>
+    <!-- ======== main-wrapper end =========== -->
+
+    <!-- ========= All Javascript files linkup ======== -->
+    <script src="assets/js/bootstrap.bundle.min.js "></script>
+    <script src="assets/js/Chart.min.js "></script>
+    <script src="assets/js/dynamic-pie-chart.js "></script>
+    <script src="assets/js/moment.min.js "></script>
+    <script src="assets/js/fullcalendar.js "></script>
+    <script src="assets/js/jvectormap.min.js "></script>
+    <script src="assets/js/world-merc.js "></script>
+    <script src="assets/js/polyfill.js "></script>
+    <script src="assets/js/main.js "></script>
+
+    <script>
+        //import MetaMaskOnboarding from '@metamask/onboarding';
+        //Basic Actions Section
+        const onboardButton = document.getElementById('connect_web3');
+
+
+        console.log("got connect button : " + onboardButton);
+
+        const showAccount = document.getElementById('showAccount');
+
+        console.log("got show account : " + showAccount);
+
+        var account;
+
+        //Created check function to see if the MetaMask extension is installed
+        const isMetaMaskInstalled = () => {
+
+            const {
+                ethereum
+            } = window;
+            return Boolean(ethereum && ethereum.isMetaMask);
+        };
+
+        const MetaMaskClientCheck = () => {
+            //Now we check to see if Metmask is installed
+            if (!isMetaMaskInstalled()) {
+                console.log("metamask not installed ");
+                //If it isn't installed we ask the user to click to install it
+                onboardButton.innerText = 'Click here to install MetaMask!';
+                //When the button is clicked we call this function
+                onboardButton.onclick = onClickInstall;
+                //The button is now disabled
+                onboardButton.disabled = false;
+            } else {
+                //If it is installed we change our button text
+                onboardButton.innerText = 'Click to Connect Metamask';
+                console.log("metamask installed ");
+                onboardButton.addEventListener('click', () => {
+                    getAccount();
+                    console.log(" getting ended bets: " + account);
+                    getEndedBets();
+                    onboardButton.innerText = "Web 3 Connected ";
+                    console.log(" getting running bets ");
+                    getRunningBets();
+                    console.log(" getting running stats ");
+                    getStats();
+                });
+            }
+        };
+        const initialize = () => {
+            MetaMaskClientCheck();
+
+        };
+
+        window.addEventListener('DOMContentLoaded', initialize);
+
+        async function getAccount() {
+            const accounts = await ethereum.request({
+                method: 'eth_requestAccounts'
+            });
+            account = accounts[0];
+            showAccount.innerHTML = "<b>Connected Wallet :: " + account + "</b>";
+        }
+
+        //We create a new MetaMask onboarding object to use in our app
+        //const onboarding = new MetaMaskOnboarding({ forwarderOrigin });
+
+        //This will start the onboarding proccess
+        const onClickInstall = () => {
+            onboardButton.innerText = 'Onboarding in progress';
+            onboardButton.disabled = true;
+            //On this object we have startOnboarding which will start the onboarding process for our end user
+            onboarding.startOnboarding();
+        };
+
+        const onClickConnect = async() => {
+            try {
+                // Will open the MetaMask UI
+                // You should disable this button while the request is pending!
+                await ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        const unicode_bets_abi = [{
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "PoolX",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": false,
+            "inputs": [{
+                "internalType": "uint8",
+                "name": "_choice",
+                "type": "uint8"
+            }],
+            "name": "YourBet",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [{
+                "internalType": "address",
+                "name": "better",
+                "type": "address"
+            }],
+            "name": "betterExists",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "name": "betters",
+            "outputs": [{
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": false,
+            "inputs": [{
+                "internalType": "uint256",
+                "name": "_outcome",
+                "type": "uint256"
+            }],
+            "name": "getRewards",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "maxTotalBets",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "minimumBet",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "pool1",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "pool2",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "pool3",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "poolTeam1",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "poolTeam2",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "totalwins",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }];
+        const ierc20_abi = [{
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Approval",
+            "type": "event"
+        }, {
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Transfer",
+            "type": "event"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }],
+            "name": "allowance",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "approve",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }],
+            "name": "balanceOf",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transfer",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transferFrom",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }];
+
+        const usdc_erc20_address = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
+        const uni_erc20_address = "0xc8f88977e21630cf93c02d02d9e8812ff0dfc37a";
+        const tether_erc20_address = "0x110a13fc3efe6a245b50102d2d79b3e76125ae83";
+        const dai_erc20_address = "0xad6d458402f60fd3bd25163575031acdce07538d";
+        const web3 = new Web3(ethereum);
+        const unicode_bets_address = "0xacC11486F58e1B304c797c4a95B091dB8B2d7225";
+
+        // unicode bets
+        const unicodeBetsContract = new web3.eth.Contract(unicode_bets_abi, unicode_bets_address);
+
+        // ierc20 contracts 
+        const usdcContract = new web3.eth.Contract(ierc20_abi, usdc_erc20_address);
+        const uniContract = new web3.eth.Contract(ierc20_abi, uni_erc20_address);
+        const tetherContract = new web3.eth.Contract(ierc20_abi, tether_erc20_address);
+        const daiContract = new web3.eth.Contract(ierc20_abi, dai_erc20_address);
+
+        const alpha_approve_button = document.getElementById("approve_token_alpha");
+        const beta_approve_button = document.getElementById("approve_token_beta");
+
+        const team_position_select = document.getElementById("bet_position");
+
+        const place_bet_button = document.getElementById("place_bet_button");
+
+        place_bet_button.addEventListener('click', () => {
+            placeBet();
+        });
+
+        const alpha_amount = document.getElementById("alpha_bet_amount");
+
+        const txn_display = document.getElementById("txn_display");
+
+        const pool_1_view = document.getElementById("pool_1_view");
+        const pool_2_view = document.getElementById("pool_2_view");
+        const pool_x_view = document.getElementById("pool_x_view");
+
+        alpha_approve_button.addEventListener('click', () => {
+            approveAlphaContract();
+        });
+
+        async function approveAlphaContract() {
+            console.log("from account : " + account);
+            let ierc20selected = document.getElementById("alpha_bet_token").value;
+            console.log("selected ierc20: " + ierc20selected);
+
+            let ierc20betAmount = document.getElementById("alpha_bet_amount").value;
+            let alpha_approve_button = document.getElementById("approve_token_alpha");
+            alpha_approve_button.innerText = "approving...";
+
+            let ierc20Contract = getIERC20Contract(ierc20selected);
+            console.log("ierc20 contract" + ierc20Contract);
+
+            ierc20Contract.methods.approve(unicode_bets_address, ierc20betAmount).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("result:-" + result);
+                    alpha_approve_button.innerText = ierc20selected + " approved";
+                    alpha_approve_button.disabled = true;
+                })
+        }
+
+        function getIERC20Contract(ierc20Selected) {
+            if (ierc20Selected == 'UNI') {
+                return uniContract;
+            }
+            if (ierc20Selected == 'USDC') {
+                return usdcContract;
+            }
+            if (ierc20Selected == 'TETHER') {
+                return tetherContract;
+            }
+            if (ierc20Selected == 'DAI') {
+                return daiContract;
+            }
+        }
+
+        function getEndedBets() {
+
+        }
+        async function getRunningBets() {
+
+        }
+
+        async function getStats() {
+            unicodeBetsContract.methods.pool1().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("result:-" + result);
+                    pool_1_view.innerText = result;
+                });
+            unicodeBetsContract.methods.pool2().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("result:-" + result);
+                    pool_2_view.innerText = result;
+
+                });
+            unicodeBetsContract.methods.pool3().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("result:-" + result);
+                    pool_x_view.innerText = result;
+                });
+        }
+
+        async function placeBet() {
+            let position = team_position_select.value;
+            let alpha_bet = alpha_bet_amount.value;
+            unicodeBetsContract.methods.YourBet(position).send({
+                    from: account,
+                    value: alpha_bet
+                })
+                .on('transactionHash', function(hash) {
+                    txn_display.innerText = "Etherscan Transaction: " + hash;
+                    place_bet_button.innerText = "placing...";
+                })
+                .on('reciept', function(reciept) {
+                    add_bet();
+                    place_bet_button.innerText = "Placed";
+                })
+                .on('confirmation', function(confirmationNumber, receipt) {
+                    txn_display.innerText = "confirmed"
+                    place_bet_button.innerText = "Place Bet";
+                })
+                .on('error', function(error, receipt) {
+                    place_bet_button.innerText = "Place Bet";
+                });
+        }
+
+
+
+        function add_bet() {
+            console.log("adding bet");
+        }
+
+        async function claimRewards() {
+
+        }
+    </script>
+
+</body>
+
+</html>
